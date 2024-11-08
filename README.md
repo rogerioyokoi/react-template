@@ -13,72 +13,13 @@
   - [Estrutura do Projeto](#estrutura-do-projeto)
   - [Contribuição](#contribuição)
   - [Licença](#licença)
-  - [Contato](#contato)
 
 ## Introdução
 
-Descrição geral do projeto, objetivos e funcionalidades principais.
-
-## Tecnologias
-
-Lista das tecnologias e ferramentas utilizadas no projeto.
-
-## Instalação
-
-Passos necessários para instalar e configurar o projeto localmente.
-
-## Uso
-
-Instruções sobre como utilizar o projeto.
-
-### Scripts
-
-Descrição dos scripts disponíveis e suas funcionalidades.
-
-### Configuração de Depuração
-
-Instruções para configurar a depuração no ambiente de desenvolvimento.
-
-## Estrutura do Projeto
-
-Explicação da estrutura de diretórios e arquivos do projeto.
-
-## Contribuição
-
-Diretrizes para contribuir com o projeto, incluindo como fazer forks, criar branches, e abrir pull requests.
-
-## Licença
-
-Informações sobre a licença do projeto.
-
-## Contato
-
-Informações de contato para dúvidas ou suporte.
-
------------------------------------
-
-# React Template
-
-## Sumário
-
-- [React Template](#react-template)
-  - [Sumário](#sumário)
-  - [Introdução](#introdução)
-  - [Tecnologias](#tecnologias)
-  - [Instalação](#instalação)
-  - [Uso](#uso)
-    - [Scripts](#scripts)
-    - [Configuração de Depuração](#configuração-de-depuração)
-  - [Estrutura do Projeto](#estrutura-do-projeto)
-  - [Contribuição](#contribuição)
-  - [Licença](#licença)
-  - [Contato](#contato)
-
-## Introdução
-
-Este projeto é um template básico de aplicação React, desenvolvido com TypeScript e configurado com uma série de ferramentas modernas para garantir uma experiência de desenvolvimento eficiente e organizada. 
+Este projeto é um template básico de aplicação React, desenvolvido com TypeScript e configurado com uma série de ferramentas modernas para garantir uma experiência de desenvolvimento eficiente e organizada.
 
 **Objetivos**:
+
 - Fornecer uma estrutura inicial para aplicações React com suporte a autenticação.
 - Implementar uma arquitetura escalável para facilitar o desenvolvimento de novas funcionalidades.
 - Prover uma base de desenvolvimento com scripts de automação para testes, linting e formatação de código.
@@ -104,12 +45,14 @@ As principais tecnologias e ferramentas utilizadas neste projeto incluem:
 Para instalar e configurar o projeto localmente, siga os passos abaixo:
 
 1. **Clone o repositório**:
+
    ```bash
    git clone https://github.com/seu-usuario/react-authentication-template.git
    cd react-authentication-template
    ```
 
 2. **Instale as dependências**:
+
    ```bash
    npm install
    ```
@@ -204,3 +147,4 @@ Este projeto está sob a licença MIT. Para mais detalhes, consulte o arquivo LI
 
 ```
 
+```
