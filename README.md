@@ -10,6 +10,12 @@
   - [Uso](#uso)
     - [Scripts](#scripts)
     - [Configuração de Depuração](#configuração-de-depuração)
+  - [Configurações e Snippets do VS Code](#configurações-e-snippets-do-vs-code)
+    - [Configurações do Editor](#configurações-do-editor)
+    - [Snippets para Componentes React e Testes](#snippets-para-componentes-react-e-testes)
+      - [Snippet de Componente React com TypeScript](#snippet-de-componente-react-com-typescript)
+      - [Snippet de Testes para Componentes React](#snippet-de-testes-para-componentes-react)
+    - [Como Utilizar](#como-utilizar)
   - [Estrutura do Projeto](#estrutura-do-projeto)
   - [Contribuição](#contribuição)
   - [Licença](#licença)
@@ -94,6 +100,128 @@ Para configurar a depuração do projeto:
 2. Configure a depuração no Vite, caso o editor exija um arquivo de configuração de depuração específico.
 3. Utilize os scripts `npm run dev` para rodar o servidor e `npm run test:ui` para verificar os testes de maneira interativa.
 
+## Configurações e Snippets do VS Code
+
+Para facilitar e otimizar a experiência de desenvolvimento, este projeto inclui configurações personalizadas e snippets no VS Code. Eles ajudam na consistência de formatação, automação de testes, e padronização de criação de componentes React com TypeScript. Abaixo, explicamos cada um deles e seu propósito.
+
+### Configurações do Editor
+
+No arquivo `.vscode/settings.json`, incluímos algumas configurações importantes para manter o código consistente e melhorar o fluxo de trabalho com o editor.
+
+```json
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}
+```
+
+- **`editor.formatOnPaste` e `editor.formatOnSave`**: Habilitam a formatação automática ao colar e ao salvar, garantindo que o código sempre esteja formatado corretamente.
+- **`editor.defaultFormatter`**: Define o Prettier como formatador padrão, alinhando com o estilo configurado no projeto.
+- **`files.associations`**: Associa arquivos CSS ao Tailwind CSS, oferecendo suporte a suas classes utilitárias no editor.
+
+### Snippets para Componentes React e Testes
+
+#### Snippet de Componente React com TypeScript
+
+O snippet `React Component (TypeScript)` permite criar rapidamente um componente funcional em React com TypeScript, incluindo estrutura de documentação JSDoc para descrever o componente, tipos de props e uma base para inclusão de classes CSS.
+
+- **Prefixo**: `react:fc`
+- **Descrição**: Cria um componente funcional React com suporte a TypeScript.
+
+Exemplo de uso:
+
+```typescript
+/**
+ * ComponentName - Descrição do componente
+ *
+ * @component
+ * @example
+ * return (
+ *   <ComponentName />
+ * )
+ */
+interface ComponentNameProps {
+  // Defina aqui os tipos de props
+  // propName?: tipo;
+  props
+}
+
+const ComponentName: React.FC<ComponentNameProps> = ({
+  // Desestruture suas props aqui
+  props
+}) => {
+  return (
+    <div className='component-class'>
+      {/* Conteúdo do componente */}
+    </div>
+  );
+};
+
+export default ComponentName;
+```
+
+#### Snippet de Testes para Componentes React
+
+O snippet `React Component Tests` fornece uma estrutura completa para testes de componentes usando Vitest e Testing Library, incluindo seções para testes de snapshot, acessibilidade (A11y), renderização, e aplicação de classes CSS.
+
+- **Prefixo**: `react:test`
+- **Descrição**: Cria uma suíte de testes para componentes React com TypeScript, com testes para snapshot, acessibilidade, renderização e estilos.
+
+Exemplo de uso:
+
+```typescript
+import { render } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+import { axe } from 'vitest-axe';
+import ComponentName from './componentName';
+
+describe('Components > ComponentName', () => {
+  describe('Snapshot', () => {
+    it('Should match snapshot without Subtitle', () => {
+      const { container } = render(<ComponentName title={mockTitleProp} />);
+      expect(container).toMatchSnapshot();
+    });
+  });
+
+  describe('Accessibility Tests (A11y)', () => {
+    it('Should not have accessibility violations with only title', async () => {
+      const { container } = render(<ComponentName title={mockTitleProp} />);
+      expect(await axe(container)).toHaveNoViolations();
+    });
+  });
+
+  describe('Rendering', () => {
+    it('Should render title correctly', () => {
+      const { getByText } = render(<ComponentName title={mockTitleProp} />);
+      expect(getByText(mockTitleProp)).toBeInTheDocument();
+    });
+  });
+
+  describe('CSS Classes and Styles', () => {
+    it('Should have the correct class for title', () => {
+      const { container } = render(<ComponentName title={mockTitleProp} />);
+      const titleElement = container.querySelector('.title-class');
+      expect(titleElement).toBeInTheDocument();
+    });
+  });
+});
+```
+
+### Como Utilizar
+
+Para utilizar esses snippets, basta digitar o prefixo no VS Code dentro de um arquivo `.tsx`:
+
+- **`react:fc`**: Cria um novo componente funcional em React.
+- **`react:test`**: Gera uma estrutura de teste para um componente React.
+
+Essas ferramentas automatizam partes importantes do desenvolvimento e ajudam a garantir consistência, especialmente em projetos colaborativos ou templates como este.
+
+Essas configurações e snippets podem ser estendidos conforme necessário, de acordo com os padrões e práticas de desenvolvimento adotados no projeto.
+
 ## Estrutura do Projeto
 
 Abaixo está a estrutura de diretórios e arquivos principais do projeto:
@@ -144,7 +272,3 @@ O projeto utiliza o padrão de commits convencionais para garantir um histórico
 ## Licença
 
 Este projeto está sob a licença MIT. Para mais detalhes, consulte o arquivo LICENSE no repositório.
-
-```
-
-```
