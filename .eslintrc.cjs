@@ -42,6 +42,7 @@ module.exports = {
       'error',
       {
         prefer: 'type-imports', // Garante o uso de 'type' para importações de tipos/interfaces
+        fixStyle: 'inline-type-imports' // Adiciona a tipagem em linha
       },
     ],
     // Organiza as importações por separação de grupos e ordem alfabética
